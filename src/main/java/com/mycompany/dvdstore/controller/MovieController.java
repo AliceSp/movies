@@ -1,12 +1,20 @@
 package com.mycompany.dvdstore.controller;
 
 import com.mycompany.dvdstore.entity.Movie;
-import com.mycompany.dvdstore.service.MovieService;
+import com.mycompany.dvdstore.service.IMovieService;
 
 import java.util.Scanner;
 
 public class MovieController {
-    private MovieService movieService = new MovieService();
+    public IMovieService getMovieServiceInterface() {
+        return movieServiceInterface;
+    }
+
+    public void setMovieServiceInterface(IMovieService movieServiceInterface) {
+        this.movieServiceInterface = movieServiceInterface;
+    }
+
+    private IMovieService movieServiceInterface;
 
     public void addUsingConsole() {
         System.out.println( "Quel est le titre du film ?" );
@@ -17,6 +25,6 @@ public class MovieController {
         Movie movie = new Movie();
         movie.setTitle(titre);
         movie.setGenre(genre);
-        movieService.registerMovie(movie);
+        movieServiceInterface.registerMovie(movie);
     }
 }
