@@ -20,7 +20,7 @@ public class FileMovieRepository implements  IMovieRepository {
     public void add(Movie movie) {
         FileWriter writer;
         try{
-            writer=new FileWriter(file,true);
+            writer = new FileWriter(file,true);
             writer.write(movie.getTitle() + ";" + movie.getGenre() + "\n");
             writer.close();
         }
