@@ -2,10 +2,14 @@ package com.mycompany.dvdstore.controller;
 
 import com.mycompany.dvdstore.entity.Movie;
 import com.mycompany.dvdstore.service.IMovieService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Scanner;
 
 public class MovieController {
+    @Autowired
+    private IMovieService movieServiceInterface;
+
     public IMovieService getMovieServiceInterface() {
         return movieServiceInterface;
     }
@@ -13,8 +17,6 @@ public class MovieController {
     public void setMovieServiceInterface(IMovieService movieServiceInterface) {
         this.movieServiceInterface = movieServiceInterface;
     }
-
-    private IMovieService movieServiceInterface;
 
     public void addUsingConsole() {
         System.out.println( "Quel est le titre du film ?" );
