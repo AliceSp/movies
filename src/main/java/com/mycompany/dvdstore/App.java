@@ -1,19 +1,19 @@
 package com.mycompany.dvdstore;
 
 import com.mycompany.dvdstore.controller.MovieController;
+import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.PropertySource;
 
-@ComponentScan(basePackages = {"com.mycompany.dvdstore.controller","com.mycompany.dvdstore.service","com.mycompany.dvdstore.repository.file"})
-@PropertySource("classpath:application.properties")
-public class App 
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class App
 {
     public static void main( String[] args )
     {
-        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-        MovieController movieController = context.getBean(MovieController.class);
+        ApplicationContext context=SpringApplication.run(App.class, args);
+        MovieController movieController=context.getBean(MovieController.class);
+
         movieController.addUsingConsole();
 
     }
